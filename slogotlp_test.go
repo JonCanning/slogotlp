@@ -110,6 +110,7 @@ func TestTypes(t *testing.T) {
 			},
 			validator: func(is *is.I, lr *logspb.LogRecord) {
 				is.Equal(42.0, getAttribute(is, lr, "float").GetDoubleValue())
+				is.Equal(lr.SeverityText, "INFO")
 			},
 		},
 		"error": {

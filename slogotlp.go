@@ -366,7 +366,7 @@ func (h *Handler) convertRecord(r slog.Record) *logspb.LogRecord {
 		TimeUnixNano:         timeNow,
 		ObservedTimeUnixNano: timeNow,
 		SeverityNumber:       severityNumber,
-		SeverityText:         severityNumber.String(),
+		SeverityText:         strings.TrimPrefix(severityNumber.String(), "SEVERITY_NUMBER_"),
 		Body: &commonpb.AnyValue{
 			Value: &commonpb.AnyValue_StringValue{
 				StringValue: r.Message,
